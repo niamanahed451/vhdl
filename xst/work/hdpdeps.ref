@@ -1,0 +1,6 @@
+V3 3
+FL $XILINX/TLC/TLC.vhd 2020/09/08.02:37:00 J.36
+EN work/traffic_light_controller 1599529188 FL $XILINX/TLC/TLC.vhd \
+      PB ieee/std_logic_1164 1177545575 PB ieee/STD_LOGIC_UNSIGNED 1177545583
+AR work/traffic_light_controller/traffic_light 1599529189 \
+      FL $XILINX/TLC/TLC.vhd EN work/traffic_light_controller 1599529188

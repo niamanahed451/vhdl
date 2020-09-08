@@ -1,0 +1,1 @@
+xst -ise "C:/Xilinx92i/TLC/TLC.ise" -intstyle ise -ifn traffic_light_controller.xst -ofn traffic_light_controller.syr

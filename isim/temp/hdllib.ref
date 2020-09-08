@@ -1,0 +1,4 @@
+EN traffic_light_controller NULL C:/Xilinx92i/TLC/TLC.vhd sub00/vhpl00 1599529142
+AR traffic_light_controller traffic_light C:/Xilinx92i/TLC/TLC.vhd sub00/vhpl01 1599529143
+EN tb_traffic_light_controller NULL C:/Xilinx92i/TLC/tb_TLC.vhd sub00/vhpl02 1599529144
+AR tb_traffic_light_controller behavior C:/Xilinx92i/TLC/tb_TLC.vhd sub00/vhpl03 1599529145

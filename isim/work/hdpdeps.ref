@@ -1,0 +1,12 @@
+V3 7
+FL $XILINX/TLC/tb_TLC.vhd 2020/09/08.02:38:13 J.36
+EN work/tb_traffic_light_controller 1599529162 FL $XILINX/TLC/tb_TLC.vhd \
+      PB ieee/std_logic_1164 1179176983
+AR work/tb_traffic_light_controller/behavior 1599529163 \
+      FL $XILINX/TLC/tb_TLC.vhd EN work/tb_traffic_light_controller 1599529162 \
+      CP traffic_light_controller
+FL $XILINX/TLC/TLC.vhd 2020/09/08.02:37:00 J.36
+EN work/traffic_light_controller 1599529160 FL $XILINX/TLC/TLC.vhd \
+      PB ieee/std_logic_1164 1179176983 PB ieee/STD_LOGIC_UNSIGNED 1179176991
+AR work/traffic_light_controller/traffic_light 1599529161 \
+      FL $XILINX/TLC/TLC.vhd EN work/traffic_light_controller 1599529160

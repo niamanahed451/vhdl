@@ -1,0 +1,2 @@
+vhdl work "TLC.vhd"
+vhdl work "tb_TLC.vhd"

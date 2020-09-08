@@ -1,0 +1,403 @@
+Release 9.2i - xst J.36
+Copyright (c) 1995-2007 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to ./xst/projnav.tmp
+CPU : 0.00 / 0.11 s | Elapsed : 0.00 / 0.00 s
+ 
+--> Parameter xsthdpdir set to ./xst
+CPU : 0.00 / 0.11 s | Elapsed : 0.00 / 0.00 s
+ 
+--> Reading design: traffic_light_controller.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+     9.1) Device utilization summary
+     9.2) Partition Resource Summary
+     9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "traffic_light_controller.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "traffic_light_controller"
+Output Format                      : NGC
+Target Device                      : xc3s50-5-vq100
+
+---- Source Options
+Top Module Name                    : traffic_light_controller
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : lut
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : YES
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : YES
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 500
+Add Generic Clock Buffer(BUFG)     : 8
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Library Search Order               : traffic_light_controller.lso
+Keep Hierarchy                     : NO
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "C:/Xilinx92i/TLC/TLC.vhd" in Library work.
+Architecture traffic_light of Entity traffic_light_controller is up to date.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <traffic_light_controller> in library <work> (architecture <traffic_light>).
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing Entity <traffic_light_controller> in library <work> (Architecture <traffic_light>).
+Entity <traffic_light_controller> analyzed. Unit <traffic_light_controller> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <traffic_light_controller>.
+    Related source file is "C:/Xilinx92i/TLC/TLC.vhd".
+    Found finite state machine <FSM_0> for signal <current_state>.
+    -----------------------------------------------------------------------
+    | States             | 4                                              |
+    | Transitions        | 8                                              |
+    | Inputs             | 4                                              |
+    | Outputs            | 6                                              |
+    | Clock              | clk (rising_edge)                              |
+    | Reset              | rst_n (negative)                               |
+    | Reset type         | asynchronous                                   |
+    | Reset State        | hgre_fred                                      |
+    | Power Up State     | hgre_fred                                      |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 28-bit up counter for signal <counter_1s>.
+    Found 28-bit comparator greatequal for signal <counter_1s$cmp_ge0000> created at line 159.
+    Found 1-bit register for signal <delay_10s>.
+    Found 1-bit register for signal <delay_3s_F>.
+    Found 1-bit register for signal <delay_3s_H>.
+    Found 4-bit up counter for signal <delay_count>.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred   2 Counter(s).
+	inferred   3 D-type flip-flop(s).
+	inferred   1 Comparator(s).
+Unit <traffic_light_controller> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Counters                                             : 2
+ 28-bit up counter                                     : 1
+ 4-bit up counter                                      : 1
+# Registers                                            : 3
+ 1-bit register                                        : 3
+# Comparators                                          : 1
+ 28-bit comparator greatequal                          : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Analyzing FSM <FSM_0> for best encoding.
+Optimizing FSM <current_state> on signal <current_state[1:2]> with gray encoding.
+-----------------------
+ State     | Encoding
+-----------------------
+ hgre_fred | 00
+ hyel_fred | 01
+ hred_fgre | 11
+ hred_fyel | 10
+-----------------------
+Loading device for application Rf_Device from file '3s50.nph' in environment C:\Xilinx92i.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# FSMs                                                 : 1
+# Counters                                             : 2
+ 28-bit up counter                                     : 1
+ 4-bit up counter                                      : 1
+# Registers                                            : 5
+ Flip-Flops                                            : 5
+# Comparators                                          : 1
+ 28-bit comparator greatequal                          : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <traffic_light_controller> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block traffic_light_controller, actual ratio is 4.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 37
+ Flip-Flops                                            : 37
+
+=========================================================================
+
+=========================================================================
+*                          Partition Report                             *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : traffic_light_controller.ngr
+Top Level Output File Name         : traffic_light_controller
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : NO
+
+Design Statistics
+# IOs                              : 9
+
+Cell Usage :
+# BELS                             : 134
+#      GND                         : 1
+#      INV                         : 4
+#      LUT1                        : 27
+#      LUT2                        : 8
+#      LUT3                        : 5
+#      LUT4                        : 19
+#      MUXCY                       : 42
+#      VCC                         : 1
+#      XORCY                       : 27
+# FlipFlops/Latches                : 37
+#      FDC                         : 2
+#      FDE                         : 3
+#      FDR                         : 28
+#      FDRE                        : 4
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 8
+#      IBUF                        : 2
+#      OBUF                        : 6
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s50vq100-5 
+
+ Number of Slices:                      31  out of    768     4%  
+ Number of Slice Flip Flops:            37  out of   1536     2%  
+ Number of 4 input LUTs:                63  out of   1536     4%  
+ Number of IOs:                          9
+ Number of bonded IOBs:                  9  out of     63    14%  
+ Number of GCLKs:                        1  out of      8    12%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 37    |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+-----------------------------------------------------+-------------------------+-------+
+Control Signal                                       | Buffer(FF name)         | Load  |
+-----------------------------------------------------+-------------------------+-------+
+current_state_Rst_inv(current_state_Rst_inv1_INV_0:O)| NONE(current_state_FFd1)| 2     |
+-----------------------------------------------------+-------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -5
+
+   Minimum period: 6.339ns (Maximum Frequency: 157.757MHz)
+   Minimum input arrival time before clock: 2.074ns
+   Maximum output required time after clock: 7.984ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 6.339ns (frequency: 157.757MHz)
+  Total number of paths / destination ports: 1595 / 76
+-------------------------------------------------------------------------
+Delay:               6.339ns (Levels of Logic = 9)
+  Source:            counter_1s_7 (FF)
+  Destination:       delay_count_0 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: counter_1s_7 to delay_count_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q              3   0.626   1.066  counter_1s_7 (counter_1s_7)
+     LUT4:I0->O            1   0.479   0.000  clk_1s_enable_cmp_eq0000_wg_lut<0> (N111)
+     MUXCY:S->O            1   0.435   0.000  clk_1s_enable_cmp_eq0000_wg_cy<0> (clk_1s_enable_cmp_eq0000_wg_cy<0>)
+     MUXCY:CI->O           1   0.056   0.000  clk_1s_enable_cmp_eq0000_wg_cy<1> (clk_1s_enable_cmp_eq0000_wg_cy<1>)
+     MUXCY:CI->O           1   0.056   0.000  clk_1s_enable_cmp_eq0000_wg_cy<2> (clk_1s_enable_cmp_eq0000_wg_cy<2>)
+     MUXCY:CI->O           1   0.056   0.000  clk_1s_enable_cmp_eq0000_wg_cy<3> (clk_1s_enable_cmp_eq0000_wg_cy<3>)
+     MUXCY:CI->O           1   0.056   0.000  clk_1s_enable_cmp_eq0000_wg_cy<4> (clk_1s_enable_cmp_eq0000_wg_cy<4>)
+     MUXCY:CI->O           1   0.056   0.000  clk_1s_enable_cmp_eq0000_wg_cy<5> (clk_1s_enable_cmp_eq0000_wg_cy<5>)
+     MUXCY:CI->O           2   0.265   1.040  clk_1s_enable_cmp_eq0000_wg_cy<6> (clk_1s_enable)
+     LUT4:I0->O            4   0.479   0.779  delay_count_and0000 (delay_count_and0000)
+     FDRE:R                    0.892          delay_count_0
+    ----------------------------------------
+    Total                      6.339ns (3.453ns logic, 2.886ns route)
+                                       (54.5% logic, 45.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              2.074ns (Levels of Logic = 2)
+  Source:            sensor (PAD)
+  Destination:       current_state_FFd2 (FF)
+  Destination Clock: clk rising
+
+  Data Path: sensor to current_state_FFd2
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             1   0.715   0.704  sensor_IBUF (sensor_IBUF)
+     LUT4:I3->O            1   0.479   0.000  current_state_FFd2-In1 (current_state_FFd2-In)
+     FDC:D                     0.176          current_state_FFd2
+    ----------------------------------------
+    Total                      2.074ns (1.370ns logic, 0.704ns route)
+                                       (66.1% logic, 33.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 10 / 6
+-------------------------------------------------------------------------
+Offset:              7.984ns (Levels of Logic = 2)
+  Source:            current_state_FFd1 (FF)
+  Destination:       light_farm<1> (PAD)
+  Source Clock:      clk rising
+
+  Data Path: current_state_FFd1 to light_farm<1>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q             13   0.626   1.289  current_state_FFd1 (current_state_FFd1)
+     LUT2:I0->O            1   0.479   0.681  delay_count_and0000111 (YELLOW_LIGHT2_ENABLE)
+     OBUF:I->O                 4.909          light_farm_1_OBUF (light_farm<1>)
+    ----------------------------------------
+    Total                      7.984ns (6.014ns logic, 1.970ns route)
+                                       (75.3% logic, 24.7% route)
+
+=========================================================================
+CPU : 5.27 / 5.39 s | Elapsed : 5.00 / 5.00 s
+ 
+--> 
+
+Total memory usage is 205616 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    0 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+
